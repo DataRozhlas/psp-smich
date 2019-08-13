@@ -1,724 +1,99 @@
-<!DOCTYPE html>
-<!-- saved from url=(0052)http://rozhlas2017.superkoderi.cz/tpl/14-datari.html -->
-<html lang="cs" class="js fonts-loaded no-touchevents"><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	
-	<!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><![endif]-->
-	<meta name="description" content="">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=0">
+<!doctype html>
+<html>
 
-	<meta name="twitter:card" content="summary">
-	<meta name="twitter:title" content="Dataři">
-	<meta name="twitter:description" content="">
-	<meta name="twitter:image" content="../img/illust/twitter.jpg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Highcharts test</title>
+</head>
 
-	<meta property="og:title" content="Dataři">
-	<meta property="og:description" content="">
-	<meta property="og:image" content="../img/illust/facebook.jpg">
-	<meta property="og:site_name" content="Project">
-	<meta property="og:url" content="http://www.rozhlas.cz/zpravy/portal/">
-
-	<title>Dataři | iRozhlas</title>
-
-	<link rel="stylesheet" href="./wrapper_files/style.css" media="screen, handheld">
-
-	<link rel="icon" href="http://rozhlas2017.superkoderi.cz/img/favicon.ico">
-	<link rel="apple-touch-icon" href="http://rozhlas2017.superkoderi.cz/img/apple-touch-icon-iphone.png">
-	<link rel="apple-touch-icon" sizes="72x72" href="http://rozhlas2017.superkoderi.cz/img/apple-touch-icon-ipad.png">
-	<link rel="apple-touch-icon" sizes="114x114" href="http://rozhlas2017.superkoderi.cz/img/apple-touch-icon-large.png">
-
-	<!--[if lt IE 9]>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
-	<![endif]-->
-
-	<script>
-		(function () {
-			var className = document.documentElement.className;
-			isOperaMini = (navigator.userAgent.indexOf('Opera Mini') > -1);
-
-			function getCookie(name) {
-				var value = '; ' + document.cookie;
-				var parts = value.split('; ' + name + '=');
-				if (parts.length === 2) return parts.pop().split(';').shift();
-			}
-
-			var textSize = getCookie('textSize');
-
-			if (textSize) {
-				document.documentElement.setAttribute('data-fz', textSize);
-			}
-
-			className = className.replace('no-js', 'js');
-
-			if(document.cookie.indexOf('fontsLoaded') > -1) {
-				className += ' fonts-loaded';
-			}
-
-			if(document.cookie.indexOf('inverseVersion') > -1) {
-				className += ' page-inverse';
-			}
-
-			if(document.cookie.indexOf('textVersion') > -1 || isOperaMini) {
-				className += ' page-text-version';
-			}
-
-			if(isOperaMini) {
-				className += ' operamini';
-			}
-
-			if(/iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream) {
-				className += ' ios';
-			}
-
-			if(document.querySelector && document.cookie.indexOf('forceDesktop') > -1) {
-				var viewport = document.querySelector("meta[name=viewport]");
-				viewport.setAttribute('content', 'width=1200');
-				className += ' page-forced-desktop';
-			}
-
-			document.documentElement.className = className;
-		}());
-	</script>
-
-	<script src="./wrapper_files/modernizr.min.js"></script>
-<style type="text/css">
-:root #content > #center > .dose > .dosesingle,
-:root #content > #right > .dose > .dosesingle
-{ display: none !important; }</style><style type="text/css">
-:root #content > #right > .dose > .dosesingle,
-:root #content > #center > .dose > .dosesingle
-{ display: none !important; }</style></head>
-
-	<body id="top" class="">
-<nav class="m-accessibility" aria-labelledby="m-accessibility">
-	<p id="m-accessibility" class="vhide">Přístupnostní navigace</p>
-	<a title="Přejít k obsahu (Klávesová zkratka: Alt + 2)" accesskey="2" href="http://rozhlas2017.superkoderi.cz/tpl/14-datari.html#main">Přejít k obsahu</a>
-	<span class="hide">|</span>
-	<a href="http://rozhlas2017.superkoderi.cz/tpl/14-datari.html#menu-main">Přejít k hlavnímu menu</a>
-	<span class="hide">|</span>
-	<a href="http://rozhlas2017.superkoderi.cz/tpl/14-datari.html#form-search">Přejít k vyhledávání</a>
-</nav>
-
-		<header class="header header--simple" role="banner">
-			<div class="row-main">
-				<div class="header__top hide--m">
-<div class="header__search">
-	<a href="http://rozhlas2017.superkoderi.cz/tpl/14-datari.html#" class="header__login">Přihlásit</a>
-
-	<form id="form-search" action="http://rozhlas2017.superkoderi.cz/tpl/14-datari.html?" class="f-search f-search--header" role="search">
-		<p class="inp">
-			<label for="search-header" class="inp__label js-search">
-				<span class="icon-svg icon-svg--search">
-	<svg class="icon-svg__svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-		<use xlink:href="./wrapper_files/icons-svg.svg#icon-search" x="0" y="0" width="100%" height="100%"></use>
-</svg><span class="icon-svg__fallback">Vyhledávání</span>	
-</span>
-
-			</label>
-			<span class="inp__fix">
-				<input type="text" placeholder="Zadejte hledaný výraz" class="inp__text inp__text--icon-after" id="search-header" name="search-header">
-
-				<button class="btn btn--icon-blank" type="submit">
-					<span class="btn__text">
-						<span class="icon-svg icon-svg--search">
-	<svg class="icon-svg__svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-		<use xlink:href="./wrapper_files/icons-svg.svg#icon-search" x="0" y="0" width="100%" height="100%"></use>
-</svg><span class="icon-svg__fallback">Vyhledat</span>	
-</span>
-
-					</span>
-				</button>
-			</span>
-		</p>
-	</form>
-</div>
-				</div>
-
-				<a href="http://rozhlas2017.superkoderi.cz/tpl/14-datari.html#" class="header__images js-text-version--icon">
-					<span class="icon-svg icon-svg--images">
-	<svg class="icon-svg__svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-		<use xlink:href="./wrapper_files/icons-svg.svg#icon-images" x="0" y="0" width="100%" height="100%"></use>
-	</svg>
-</span>
-
-					<span class="vhide">Zobrazit obrázky</span>
-				</a>
-
-	<p class="header__logo">
-		<a href="http://rozhlas2017.superkoderi.cz/tpl/14-datari.html#">
-			<span class="vhide">iRozhlas</span>
-			<span class="icon-svg icon-svg--logo-irozhlas">
-	<svg class="icon-svg__svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-		<use xlink:href="./wrapper_files/icons-svg.svg#icon-logo-irozhlas" x="0" y="0" width="100%" height="100%"></use>
-</svg><span class="icon-svg__fallback">iRozhlas</span>	
-</span>
-
-		</a>
-	</p>
-
-				<nav id="menu-main" class="m-main m-main--simple" role="navigation" aria-labelledby="m-main">
-					<a href="http://rozhlas2017.superkoderi.cz/tpl/14-datari.html#" class="m-main__toggle js-mobile-menu" id="m-main">
-						<span class="vhide">Hlavní menu</span>
-						<span class="icon-svg icon-svg--menu">
-	<svg class="icon-svg__svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-		<use xlink:href="./wrapper_files/icons-svg.svg#icon-menu" x="0" y="0" width="100%" height="100%"></use>
-	</svg>
-</span>
-
-					</a>
-
-					<a href="http://rozhlas2017.superkoderi.cz/tpl/14-datari.html#" class="m-main__link m-main__link--home js-static-menu" data-src="./m-static.html">
-						<span class="vhide">Český rozhlas - Zprávy</span>
-						<span class="icon-svg icon-svg--symbol">
-	<svg class="icon-svg__svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-		<use xlink:href="./wrapper_files/icons-svg.svg#icon-symbol" x="0" y="0" width="100%" height="100%"></use>
-	</svg>
-</span>
-
-					</a>
-				</nav>
-			</div>
-
-			<p class="header__socials">
-				<a href="http://rozhlas2017.superkoderi.cz/tpl/14-datari.html#">
-					<span class="icon-svg icon-svg--facebook">
-	<svg class="icon-svg__svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-		<use xlink:href="./wrapper_files/icons-svg.svg#icon-facebook" x="0" y="0" width="100%" height="100%"></use>
-	</svg>
-</span>
-
-					<span class="vhide">Facebook</span>
-				</a>
-				<a href="http://rozhlas2017.superkoderi.cz/tpl/14-datari.html#">
-					<span class="icon-svg icon-svg--twitter">
-	<svg class="icon-svg__svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-		<use xlink:href="./wrapper_files/icons-svg.svg#icon-twitter" x="0" y="0" width="100%" height="100%"></use>
-	</svg>
-</span>
-
-					<span class="vhide">Twitter</span>
-				</a>
-			</p>
-		</header>
-
-		<main id="main" class="main" role="main">	
-		<article role="article" class="b-data"> 			
-			<div class="b-data__content" id="content">
-  
-  <script type="text/javascript">
-    document.getElementsByTagName('article')[0].classList.add('b-data--no-img');
-  </script>
-  <style>ol.snowfall,ul.snowfall{list-style:initial!important;font-size:medium!important;line-height:1.5!important}ol.snowfall>li,ul.snowfall>li{background:0 0!important;margin:0!important;padding:0!important}hr.snowfall{max-width:none!important}</style>
-
-  <div class="row-main row-main--article">
-    <h1 class="b-data__title b-data__title--sm" id="snfl-title-div">
-      <!--[[ZPRAVY_TITLE:]]-->
-    </h1>
+<body>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <div id="chart" style="max-width: 600px"></div>
+    <div id="chart2" style="max-width: 600px"></div>
     <script>
-      if (window.location.href.indexOf("www.irozhlas") < 0) {
-        document.getElementById("snfl-title-div").innerHTML = "Data z mobilů:<br>Praha se denně nafoukne o polovinu, v centru jsou návštěvníci v převaze";
-      }
+        var data = { "2012-06-05": { "haha": 26, "wc": 97811, "hahaIndex": 478 }, "2015-09-15": { "haha": 23, "wc": 42295, "hahaIndex": 979 }, "2018-03-07": { "haha": 2, "wc": 5576, "hahaIndex": 646 }, "2016-05-24": { "haha": 13, "wc": 13286, "hahaIndex": 1761 }, "2013-12-04": { "haha": 8, "wc": 8182, "hahaIndex": 1760 }, "2014-09-02": { "haha": 1, "wc": 17842, "hahaIndex": 101 }, "2019-05-29": { "haha": 1, "wc": 1999, "hahaIndex": 900 }, "2017-05-16": { "haha": 12, "wc": 17722, "hahaIndex": 1219 }, "2018-07-11": { "haha": 22, "wc": 119175, "hahaIndex": 332 }, "2013-08-16": { "haha": 2, "wc": 2494, "hahaIndex": 1443 }, "2011-11-04": { "haha": 6, "wc": 3674, "hahaIndex": 2940 }, "2018-12-04": { "haha": 34, "wc": 84434, "hahaIndex": 725 }, "2019-07-09": { "haha": 12, "wc": 15619, "hahaIndex": 1383 }, "2014-02-04": { "haha": 21, "wc": 63495, "hahaIndex": 595 }, "2010-12-07": { "haha": 41, "wc": 54373, "hahaIndex": 1357 }, "2013-03-19": { "haha": 13, "wc": 14002, "hahaIndex": 1671 }, "2018-05-22": { "haha": 37, "wc": 82038, "hahaIndex": 812 }, "2012-03-13": { "haha": 10, "wc": 12795, "hahaIndex": 1407 }, "2011-02-01": { "haha": 21, "wc": 71247, "hahaIndex": 531 }, "2015-03-10": { "haha": 42, "wc": 76605, "hahaIndex": 987 }, "2018-09-11": { "haha": 25, "wc": 31943, "hahaIndex": 1409 }, "2014-01-21": { "haha": 10, "wc": 24872, "hahaIndex": 724 }, "2015-10-01": { "haha": 2, "wc": 2953, "hahaIndex": 1219 }, "2010-08-10": { "haha": 2, "wc": 13815, "hahaIndex": 261 }, "2017-09-05": { "haha": 18, "wc": 59151, "hahaIndex": 548 }, "2011-09-22": { "haha": 2, "wc": 13240, "hahaIndex": 272 }, "2015-06-16": { "haha": 24, "wc": 40165, "hahaIndex": 1076 }, "2015-06-18": { "haha": 4, "wc": 1513, "hahaIndex": 4759 }, "2010-12-21": { "haha": 12, "wc": 12425, "hahaIndex": 1738 }, "2013-02-05": { "haha": 9, "wc": 18779, "hahaIndex": 863 }, "2017-12-12": { "haha": 13, "wc": 14723, "hahaIndex": 1589 }, "2016-04-12": { "haha": 14, "wc": 9342, "hahaIndex": 2697 }, "2012-07-18": { "haha": 8, "wc": 52942, "hahaIndex": 272 }, "2012-04-24": { "haha": 15, "wc": 55668, "hahaIndex": 485 }, "2011-08-30": { "haha": 9, "wc": 7941, "hahaIndex": 2040 }, "2013-12-06": { "haha": 7, "wc": 23152, "hahaIndex": 544 }, "2018-03-09": { "haha": 9, "wc": 36332, "hahaIndex": 446 }, "2017-10-16": { "haha": 4, "wc": 27054, "hahaIndex": 266 }, "2019-05-28": { "haha": 30, "wc": 69125, "hahaIndex": 781 }, "2014-11-04": { "haha": 6, "wc": 11586, "hahaIndex": 932 }, "2013-06-11": { "haha": 9, "wc": 8883, "hahaIndex": 1824 }, "2014-09-16": { "haha": 34, "wc": 64155, "hahaIndex": 954 }, "2018-08-22": { "haha": 3, "wc": 2366, "hahaIndex": 2282 }, "2015-01-20": { "haha": 47, "wc": 33859, "hahaIndex": 2499 }, "2014-04-29": { "haha": 39, "wc": 67217, "hahaIndex": 1044 }, "2016-06-28": { "haha": 26, "wc": 28392, "hahaIndex": 1648 }, "2018-10-23": { "haha": 28, "wc": 47322, "hahaIndex": 1065 }, "2010-10-26": { "haha": 27, "wc": 55399, "hahaIndex": 877 }, "2013-07-17": { "haha": 2, "wc": 4094, "hahaIndex": 879 }, "2012-12-04": { "haha": 14, "wc": 14426, "hahaIndex": 1747 }, "2015-10-27": { "haha": 8, "wc": 13187, "hahaIndex": 1092 }, "2011-04-26": { "haha": 65, "wc": 121155, "hahaIndex": 966 }, "2019-03-05": { "haha": 28, "wc": 50394, "hahaIndex": 1000 }, "2012-09-04": { "haha": 2, "wc": 11218, "hahaIndex": 321 }, "2016-10-18": { "haha": 18, "wc": 19507, "hahaIndex": 1661 }, "2011-07-12": { "haha": 17, "wc": 86999, "hahaIndex": 352 }, "2012-03-20": { "haha": 5, "wc": 15587, "hahaIndex": 577 }, "2014-12-12": { "haha": 5, "wc": 3687, "hahaIndex": 2441 }, "2014-12-02": { "haha": 30, "wc": 47546, "hahaIndex": 1136 }, "2018-04-10": { "haha": 19, "wc": 34362, "hahaIndex": 995 }, "2017-04-04": { "haha": 18, "wc": 26505, "hahaIndex": 1222 }, "2016-01-19": { "haha": 16, "wc": 32182, "hahaIndex": 895 }, "2015-12-11": { "haha": 23, "wc": 29807, "hahaIndex": 1389 }, "2013-01-17": { "haha": 3, "wc": 13678, "hahaIndex": 395 }, "2017-02-21": { "haha": 13, "wc": 47004, "hahaIndex": 498 }, "2017-11-20": { "haha": 11, "wc": 16543, "hahaIndex": 1197 }, "2016-03-01": { "haha": 16, "wc": 34832, "hahaIndex": 827 }, "2016-03-23": { "haha": 11, "wc": 57262, "hahaIndex": 346 }, "2010-11-02": { "haha": 6, "wc": 18331, "hahaIndex": 589 }, "2016-11-29": { "haha": 17, "wc": 53700, "hahaIndex": 570 }, "2014-10-21": { "haha": 32, "wc": 35858, "hahaIndex": 1606 }, "2013-05-07": { "haha": 8, "wc": 28867, "hahaIndex": 499 }, "2015-11-24": { "haha": 36, "wc": 116190, "hahaIndex": 558 }, "2010-06-22": { "haha": 1, "wc": 588, "hahaIndex": 3061 }, "2011-09-20": { "haha": 13, "wc": 56990, "hahaIndex": 411 }, "2012-01-31": { "haha": 10, "wc": 39503, "hahaIndex": 456 }, "2016-01-28": { "haha": 1, "wc": 4195, "hahaIndex": 429 }, "2018-01-10": { "haha": 5, "wc": 9517, "hahaIndex": 946 }, "2017-01-10": { "haha": 30, "wc": 66155, "hahaIndex": 816 }, "2012-04-27": { "haha": 6, "wc": 42945, "hahaIndex": 251 }, "2018-02-27": { "haha": 21, "wc": 36405, "hahaIndex": 1038 }, "2014-09-10": { "haha": 1, "wc": 9914, "hahaIndex": 182 }, "2018-11-23": { "haha": 8, "wc": 48062, "hahaIndex": 300 }, "2019-04-16": { "haha": 19, "wc": 85932, "hahaIndex": 398 }, "2016-11-11": { "haha": 7, "wc": 98647, "hahaIndex": 128 }, "2017-06-27": { "haha": 10, "wc": 54737, "hahaIndex": 329 }, "2012-07-10": { "haha": 24, "wc": 39956, "hahaIndex": 1081 }, "2013-08-07": { "haha": 10, "wc": 30976, "hahaIndex": 581 }, "2018-01-17": { "haha": 16, "wc": 49609, "hahaIndex": 581 }, "2013-12-10": { "haha": 14, "wc": 7429, "hahaIndex": 3392 }, "2015-04-28": { "haha": 27, "wc": 44026, "hahaIndex": 1104 }, "2016-09-06": { "haha": 17, "wc": 41805, "hahaIndex": 732 }, "2011-06-07": { "haha": 24, "wc": 45332, "hahaIndex": 953 }, "2014-06-10": { "haha": 31, "wc": 59677, "hahaIndex": 935 }, "2015-05-26": { "haha": 18, "wc": 63993, "hahaIndex": 506 }, "2016-04-21": { "haha": 2, "wc": 19454, "hahaIndex": 185 }, "2011-12-06": { "haha": 29, "wc": 68733, "hahaIndex": 759 }, "2018-06-26": { "haha": 6, "wc": 11315, "hahaIndex": 954 }, "2018-11-15": { "haha": 1, "wc": 2127, "hahaIndex": 846 }, "2015-10-06": { "haha": 40, "wc": 96791, "hahaIndex": 744 }, "2014-03-18": { "haha": 16, "wc": 25265, "hahaIndex": 1140 }, "2014-07-15": { "haha": 9, "wc": 8242, "hahaIndex": 1966 }, "2017-05-10": { "haha": 16, "wc": 70282, "hahaIndex": 410 }, "2011-10-25": { "haha": 96, "wc": 103492, "hahaIndex": 1670 }, "2014-07-24": { "haha": 1, "wc": 2131, "hahaIndex": 845 }, "2010-09-07": { "haha": 2, "wc": 3742, "hahaIndex": 962 }, "2012-09-18": { "haha": 33, "wc": 83475, "hahaIndex": 712 }, "2012-02-09": { "haha": 1, "wc": 4899, "hahaIndex": 367 }, "2019-01-22": { "haha": 26, "wc": 47115, "hahaIndex": 993 }, "2013-11-25": { "haha": 2, "wc": 1939, "hahaIndex": 1857 }, "2010-09-21": { "haha": 15, "wc": 20146, "hahaIndex": 1340 }, "2011-03-15": { "haha": 27, "wc": 31805, "hahaIndex": 1528 }, "2010-09-23": { "haha": 2, "wc": 12775, "hahaIndex": 282 }, "2019-06-26": { "haha": 19, "wc": 67485, "hahaIndex": 507 }, "2012-10-23": { "haha": 41, "wc": 87097, "hahaIndex": 847 } };
+
+        var persData = [{ "name": "Vítězslav Jandák", "wc": 98257, "haha": 34, "hahaIndex": 623 }, { "name": "David Vodrážka", "wc": 19404, "haha": 3, "hahaIndex": 278 }, { "name": "Jiří Krátký", "wc": 117981, "haha": 13, "hahaIndex": 198 }, { "name": "Milan Brázdil", "wc": 51074, "haha": 5, "hahaIndex": 176 }, { "name": "Josef Hájek", "wc": 252595, "haha": 18, "hahaIndex": 128 }, { "name": "Miroslav Kalousek", "wc": 4176883, "haha": 261, "hahaIndex": 112 }, { "name": "Václav Klaus", "wc": 244471, "haha": 15, "hahaIndex": 110 }, { "name": "Jan Lipavský", "wc": 68047, "haha": 4, "hahaIndex": 106 }, { "name": "Lubomír Volný", "wc": 67770, "haha": 4, "hahaIndex": 106 }, { "name": "Jiří Šulc", "wc": 51810, "haha": 3, "hahaIndex": 104 }];
+
+        Highcharts.chart("chart", {
+            title: {
+                text: "Smíchový index jednání Poslanecké sněmovny"
+            },
+            subtitle: {
+                text: "Počet záznamů o smíchu poslanců ve stenoprotokolech, přepočteno na 1000 normostran"
+            },
+            credits: {
+                text: "Zdroj: Stenoprotokoly PSP",
+                href: "http://www.psp.cz/eknih/2017ps/stenprot/index.htm"
+            },
+            chart: {
+                type: 'line'
+            },
+            xAxis: {
+                type: "datetime"
+            },
+            yAxis: {
+                title: ""
+            },
+            tooltip: {
+                formatter: function formatter() {
+                    var _this = this;
+
+                    var loc = data[Object.keys(data).filter(function (el) {
+                        return new Date(el).getTime() === _this.x;
+                    })[0]];
+                    return "<b>" + new Date(this.x).toLocaleDateString("cs-CZ") + "</b><br>" + "Smíchový index: <b>" + this.y + "</b><br>" + "Normostran: <b>" + Math.round(loc.wc / 1800) + "</b><br>" + "Smíchů: <b>" + loc.haha + "</b>";
+                }
+            },
+            series: [{
+                name: "Smíchový index",
+                data: Object.keys(data).map(function (el) {
+                    return [new Date(el).getTime(), data[el].hahaIndex];
+                }).sort()
+            }]
+        });
+        Highcharts.chart("chart2", {
+            title: {
+                text: "Smíchový index poslanců od roku 2010"
+            },
+            subtitle: {
+                text: "Počet záznamů o smíchu při projevech poslanců, přepočteno na 1000 normostran"
+            },
+            credits: {
+                text: "Zdroj: Stenoprotokoly PSP",
+                href: "http://www.psp.cz/eknih/2017ps/stenprot/index.htm"
+            },
+            chart: {
+                type: "column"
+            },
+            yAxis: {
+                title: ""
+            },
+            xAxis: {
+                categories: persData.map(function (el) {
+                    return el.name;
+                })
+            },
+            tooltip: {
+                formatter: function formatter() {
+                    var _this2 = this;
+
+                    var loc = persData.filter(function (el) {
+                        return el.name === _this2.x;
+                    })[0];
+                    return "<b>" + this.x + "</b><br>" + "Smíchový index: <b>" + this.y + "</b><br>" + "Normostran: <b>" + Math.round(loc.wc / 1800) + "</b><br>" + "Smíchů: <b>" + loc.haha + "</b>";
+                }
+            },
+            series: [{
+                name: "Smíchový index",
+                data: persData.map(function (el) {
+                    return el.hahaIndex;
+                })
+            }]
+        });
     </script>
-  </div>
 
-  <div class="row-main row-main--narrow"> 
-    <p class="text-bold text-lg">
-      Skoro 140 tisíc lidí přijede do Prahy každý den za prací. Míří hlavně do kancelářských budov a do centra města. S nimi pak dorazí i přes půl milionu návštěvníků. Ukázala to analýza dat o pohybu mobilních telefonů, kterou si nyní město nechává zpracovat.
-    </p>
-  </div>
+</body>
 
-  <!--[[ZPRAVY_SNOWFALL_METADATA:]]-->
-
-  <div class="row-main row-main--narrow">
-    <figure class="b-detail__img"><img src="https://interaktivni.rozhlas.cz/brexit/media/cover.jpg" width="100%" /><figcaption>Foto <a href='https://ctk.cz'>ČTK</a></figcaption></figure>
-    <div class="b-inline b-inline--left"><div class="b-inline__wrap"><div class="b-inline__content"><div class="text-sm">
-    <p>
-    <b>KAREL HYNEK MÁCHA</b>
-    </p><p>
-    Karel Hynek Mácha (16. listopadu 1810 Praha-Malá Strana[1] – 6. listopadu 1836 Litoměřice[2]) byl český básník a prozaik, představitel českého romantismu a zakladatel moderní české poezie. Proslavil se jak svým životem, tak dílem, jemuž dominuje Máj (1836).
-    </p>
-</div></div></div></div>
-
-<p>Během dne se lidé v Praze soustřeďují v okolí administrativních center a obchodů, po poledni se tak nejvíc zahustí okolí Andělu, centrum Prahy (Vodičkova ulice a Petrské náměstí) a Brumlovka nedaleko Budějovické. Na poslední jmenované adrese sídlí řada velkých korporací, mezi nimi i Microsoft nebo ČEZ. Pro srovnání, na zmíněných místech je ve „špičce“ okolo šesti stovek osob na jeden hektar, průměr Prahy je 25 obyvatel na <a href="https://cs.wikipedia.org/wiki/Hektar">hektar</a> (Václavské náměstí má rozlohu asi 4 hektary).</p>
-<p>Naopak v noci se nejvíc lidí se „namačká“ ve Vršovicích, jde o 430 osob na hektar.</p>
-<p>Detaily si můžete prohlédnout v následující mapě, kterou z dat mobilních operátorů zpracoval pražský <a href="http://www.iprpraha.cz/">Institut plánování a rozvoje</a>.</p>
-</div><div class="row-main row-main--article"><i>Pokud vás zajímá, „kolik“ lidí bývá ve dne a v noci ve vaší čtvrti, najděte si ji na mapě, přepněte se na časové řezy, vyberte přepínač hustota osob a potom pohybujte „posuvníkem“ nahoře.</i></div><div class="row-main row-main--narrow">
-
-<h2 id="data-na-prodej">Data na prodej</h2>
-<div class="b-inline b-inline--right"><div class="b-inline__wrap"><div class="b-inline__content"><div class="text-sm">
-    <p>
-    <b>KAREL HYNEK MÁCHA</b>
-    </p><p>
-    Karel Hynek Mácha (16. listopadu 1810 Praha-Malá Strana[1] – 6. listopadu 1836 Litoměřice[2]) byl český básník a prozaik, představitel českého romantismu a zakladatel moderní české poezie. Proslavil se jak svým životem, tak dílem, jemuž dominuje Máj (1836).
-    </p>
-</div></div></div></div>
-
-<p>I pokud netelefonujeme nebo neposíláme SMS, telefon pravidelně komunikuje s vysílači v síti mobilního operátora. Z dat o síle signálu a použité anténě je možné odvodit, kde se přibližně telefon nachází a jak dlouhou dobu na místě strávil.</p>
-<p>Mobilní operátor má <a href="https://www.zakonyprolidi.cz/cs/2005-127/zneni-20160919#p97-3">„zákonnou povinnost“</a> takové informace uchovávat, a to půl roku do minulosti, přistupovat k nim ale mohou jen bezpečnostní složky, typicky policie nebo rozvědka.</p>
-<p>Operátoři ale obdobné informace mohou anonymizovat (tedy „zbavit“ identifikace konkrétního uživatele) a agregovat, tedy spojit informace o jednotlivcích do jakýchsi skupin. Výsledná obecná čísla pak přeprodávají dál, například marketingovým firmám či dopravním analytikům. Zpětně z nich nejde dovodit, kde se pohybuje každý jednotlivec, dávají ale určitý přehled o obecném chování obyvatel nějakého místa.</p>
-
-    <p class="meta meta--right meta--big">
-      <!--[[ZPRAVY_SNOWFALL_AUTHORS:FOOTER]]-->
-    </p>
-  </div>
-  <!--[[ZPRAVY_SNOWFALL_RELATED:ARTICLES]]-->
-</div>
-<script>!function(e){var t={};function r(n){if(t[n])return t[n].exports;var o=t[n]={i:n,l:!1,exports:{}};return e[n].call(o.exports,o,o.exports,r),o.l=!0,o.exports}r.m=e,r.c=t,r.d=function(e,t,n){r.o(e,t)||Object.defineProperty(e,t,{enumerable:!0,get:n})},r.r=function(e){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(e,"__esModule",{value:!0})},r.t=function(e,t){if(1&t&&(e=r(e)),8&t)return e;if(4&t&&"object"==typeof e&&e&&e.__esModule)return e;var n=Object.create(null);if(r.r(n),Object.defineProperty(n,"default",{enumerable:!0,value:e}),2&t&&"string"!=typeof e)for(var o in e)r.d(n,o,function(t){return e[t]}.bind(null,o));return n},r.n=function(e){var t=e&&e.__esModule?function(){return e.default}:function(){return e};return r.d(t,"a",t),t},r.o=function(e,t){return Object.prototype.hasOwnProperty.call(e,t)},r.p="",r(r.s=0)}([function(e,t,r){"use strict";r.r(t),function(){if("Microsoft Internet Explorer"===navigator.appName||navigator.userAgent.match(/Trident/)||navigator.userAgent.match(/rv:11/)){var e=document.createElement("div");e.innerHTML='Používáte zastaralý Internet Explorer, takže vám části tohoto webu nemusí fungovat. Navíc to <a target="_blank" style="color:white;" rel="noopener noreferrer" href="https://www.zive.cz/clanky/microsoft-internet-explorer-neni-prohlizec-prestante-ho-tak-pouzivat/sc-3-a-197149/default.aspx">není bezpečné</a>, zvažte přechod na <a target="_blank" style="color:white;" rel="noopener noreferrer" href="https://www.mozilla.org/cs/firefox/new/">jiný prohlížeč</a>.',e.style.cssText="text-align:center;position:absolute;width:100%;height:auto;opacity:1;z-index:100;background-color:#d52834;top:37px;padding-top:4px;padding-bottom:3px;color:white;",document.body.appendChild(e)}}()}]);</script>
-		</article>
-			<div class="wrapper">
-				<div class="row-main">
-					<section role="region" class="b-category">
-						<div class="b-category__side">
-							<h2 class="title title--icon">
-								<a href="http://rozhlas2017.superkoderi.cz/tpl/14-datari.html#">
-									<span class="icon-svg icon-svg--bullet">
-	<svg class="icon-svg__svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-		<use xlink:href="./wrapper_files/icons-svg.svg#icon-bullet" x="0" y="0" width="100%" height="100%"></use>
-	</svg>
-</span>
-
-									Zahraničí
-								</a>
-							</h2>
-
-<div class="c-grid hide--m">
-	<ul class="c-grid__list">
-
-		<li class="c-grid__item">
-			<div class="b-audio">
-				<p class="b-audio__head">
-					<span class="b-audio__play">
-						<a href="http://rozhlas2017.superkoderi.cz/tpl/14-datari.html#" class="play-btn">
-							Přehrát
-							<span class="icon-svg icon-svg--play">
-	<svg class="icon-svg__svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-		<use xlink:href="./wrapper_files/icons-svg.svg#icon-play" x="0" y="0" width="100%" height="100%"></use>
-	</svg>
-</span>
-
-						</a>
-					</span>
-					<span class="b-audio__meta text-uppercase"><time datetime="2016-10-18">18.10.</time> <a href="http://rozhlas2017.superkoderi.cz/tpl/14-datari.html#">Magazín Meteor</a></span>
-				</p>
-				<p class="b-audio__title">
-					Planeta pavouků, hledá se plch velký a jak se rodí objevy?
-				</p>
-			</div>
-		</li>
-		<li class="c-grid__item">
-			<div class="b-audio">
-				<p class="b-audio__head">
-					<span class="b-audio__play">
-						<a href="http://rozhlas2017.superkoderi.cz/tpl/14-datari.html#" class="play-btn">
-							Přehrát
-							<span class="icon-svg icon-svg--play">
-	<svg class="icon-svg__svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-		<use xlink:href="./wrapper_files/icons-svg.svg#icon-play" x="0" y="0" width="100%" height="100%"></use>
-	</svg>
-</span>
-
-						</a>
-					</span>
-					<span class="b-audio__meta text-uppercase"><time datetime="2016-10-18">18.10.</time> <a href="http://rozhlas2017.superkoderi.cz/tpl/14-datari.html#">Magazín Meteor</a></span>
-				</p>
-				<p class="b-audio__title">
-					Planeta pavouků, hledá se plch velký a jak se rodí objevy?
-				</p>
-			</div>
-		</li>
-
-	</ul>
-</div>
-						</div>
-
-						<div class="b-category__content">
-							<div class="c-articles">
-								<div class="c-articles__list">
-									<article role="article" class="c-articles__item">
-										<a href="http://rozhlas2017.superkoderi.cz/tpl/14-datari.html#" class="b-article">
-											<div class="b-article__img img img--16x9 img--w480 img--w238--m" data-text-version="">
-												<span class="img__holder">
-													<img src="./wrapper_files/480x270.jpg" width="480" height="270" alt="">
-												</span>
-											</div>
-											<div class="b-article__content">
-												<h3 class="text-xl text-sm--m text-regular--m">
-													Na Mars a zpět. Obama věří v cestu lidí na rudou planetu do roku 2030
-												</h3>
-												<p class="text-sm hide--m">
-													Podle rozhodnutí ministerstva vnitra je přes 25 milionů za výpis trestných činů za posledních pět let adekvátní. Česko tak zatím nebude mít podrobnou mapu kriminality, která je v zahraničí běžná. Věcí se nyní...
-												</p>
-											</div>
-										</a>
-									</article>
-
-									<article role="article" class="c-articles__item c-articles__item--w50p">
-										<a href="http://rozhlas2017.superkoderi.cz/tpl/14-datari.html#" class="b-article">
-											<div class="b-article__img img img--16x9 img--w238" data-text-version="">
-												<span class="img__holder">
-													<img src="./wrapper_files/238x134.jpg" width="238" height="134" alt="">
-												</span>
-											</div>
-											<div class="b-article__content">
-												<h3 class="text-sm--m text-md text-regular--m">
-													Z dánské rybí farmy uplavalo 80 tisíc pstruhů. Pochytejte je, ohrožují ekosystém, vyzývají odborníci
-												</h3>
-											</div>
-										</a>
-									</article>
-
-									<article role="article" class="c-articles__item c-articles__item--w50p">
-										<a href="http://rozhlas2017.superkoderi.cz/tpl/14-datari.html#" class="b-article">
-											<div class="b-article__img img img--16x9 img--w238" data-text-version="">
-												<span class="img__holder">
-													<img src="./wrapper_files/238x134.jpg" width="238" height="134" alt="">
-												</span>
-											</div>
-											<div class="b-article__content">
-												<h3 class="text-sm--m text-md text-regular--m">
-													Video: 'Tanec' boeingu na Letišti Václava Havla. Piloty překvapil poryv větru
-												</h3>
-											</div>
-										</a>
-									</article>
-								</div>
-
-								<p class="c-articles__more hide--d">
-									<a href="http://rozhlas2017.superkoderi.cz/tpl/14-datari.html#" class="link-more link-more--next">
-										Další články
-										<span class="icon-svg icon-svg--arrow-dots">
-	<svg class="icon-svg__svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-		<use xlink:href="./wrapper_files/icons-svg.svg#icon-arrow-dots" x="0" y="0" width="100%" height="100%"></use>
-	</svg>
-</span>
-
-									</a>
-								</p>
-							</div>
-
-							<div class="c-links hide--m">
-								<ul class="c-links__list">
-									<li class="c-links__item">
-										<a href="http://rozhlas2017.superkoderi.cz/tpl/14-datari.html#" class="c-links__link">Archeologové našli pozůstatky římského tábora. Je nejsevernější na našem území</a>
-									</li>
-									<li class="c-links__item">
-										<a href="http://rozhlas2017.superkoderi.cz/tpl/14-datari.html#" class="c-links__link">Nové i rekonstruované. Mezi stavbami roku je tunel Blanka i Hospital v Kuksu</a>
-									</li>
-									<li class="c-links__item">
-										<a href="http://rozhlas2017.superkoderi.cz/tpl/14-datari.html#" class="c-links__link">Ve vesmíru je desetkrát více galaxií. Většinu z nich zatím nevidíme</a>
-									</li>
-								</ul>
-							</div>
-						</div>
-					</section>
-				</div>
-			</div>
-		</main>
-
-<footer class="footer" role="contentinfo">
-	<div class="row-main">
-		<nav class="m-footer-m hide--d">
-			<ul class="m-footer-m__list">
-				<li class="m-footer-m__item">
-					<a href="http://rozhlas2017.superkoderi.cz/tpl/14-datari.html#" class="m-footer-m__link">
-						Cookies
-					</a>
-				</li>
-				<li class="m-footer-m__item">
-					<a href="http://rozhlas2017.superkoderi.cz/tpl/14-datari.html#" class="m-footer-m__link js-force-desktop">
-						Plná verze
-					</a>
-				</li>
-			</ul>
-
-			<p class="m-footer-m__top">
-				<a href="http://rozhlas2017.superkoderi.cz/tpl/14-datari.html#top" class="link-top js-scroll-to">
-					Nahoru
-					<span class="icon-svg icon-svg--top">
-	<svg class="icon-svg__svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-		<use xlink:href="./wrapper_files/icons-svg.svg#icon-top" x="0" y="0" width="100%" height="100%"></use>
-	</svg>
-</span>
-
-				</a>
-			</p>
-		</nav>
-
-
-		<div class="footer__wrap hide--m">
-			<p class="footer__logo">
-				<a href="http://rozhlas2017.superkoderi.cz/tpl/14-datari.html#">
-					<span class="vhide">iRozhlas</span>
-					<span class="icon-svg icon-svg--logo-irozhlas">
-	<svg class="icon-svg__svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-		<use xlink:href="./wrapper_files/icons-svg.svg#icon-logo-irozhlas" x="0" y="0" width="100%" height="100%"></use>
-	</svg>
-</span>
-
-				</a>
-			</p>
-
-			<nav class="m-tools" aria-labelledby="m-tools">
-				<p class="vhide" id="m-tools">Doplňková navigace</p>
-
-				<ul class="m-tools__list">
-					
-
-					<li class="m-tools__item m-tools__item--mobile">
-						<a href="http://rozhlas2017.superkoderi.cz/tpl/14-datari.html#" class="m-tools__link js-force-desktop-reset">
-							<span class="m-tools__icon"><span class="icon-svg icon-svg--mobile">
-	<svg class="icon-svg__svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-		<use xlink:href="./wrapper_files/icons-svg.svg#icon-mobile" x="0" y="0" width="100%" height="100%"></use>
-	</svg>
-</span>
-</span>
-							<span class="m-tools__label">Mobilní<br> verze</span>
-						</a>
-					</li>
-					<li class="m-tools__item">
-						<a href="http://rozhlas2017.superkoderi.cz/tpl/14-datari.html#" class="m-tools__link">
-							<span class="m-tools__icon"><span class="icon-svg icon-svg--rss">
-	<svg class="icon-svg__svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-		<use xlink:href="./wrapper_files/icons-svg.svg#icon-rss" x="0" y="0" width="100%" height="100%"></use>
-	</svg>
-</span>
-</span>
-							<span class="m-tools__label">RSS kanály</span>
-						</a>
-					</li>
-				</ul>
-			</nav>
-		</div>
-
-		<div class="footer__links">
-			<nav class="m-footer hide--m" aria-labelledby="m-footer">
-				<p id="m-footer" class="vhide">Navigace v zápatí</p>
-
-				<ul class="m-footer__list">
-
-					<li class="m-footer__item">
-						<a href="http://rozhlas2017.superkoderi.cz/tpl/14-datari.html#" class="m-footer__link">Redakce</a>
-					</li>
-					<li class="m-footer__item">
-						<a href="http://rozhlas2017.superkoderi.cz/tpl/14-datari.html#" class="m-footer__link">Mapa webu</a>
-					</li>
-					<li class="m-footer__item">
-						<a href="http://rozhlas2017.superkoderi.cz/tpl/14-datari.html#" class="m-footer__link">Soukromí a cookies</a>
-					</li>
-					<li class="m-footer__item">
-						<a href="http://rozhlas2017.superkoderi.cz/tpl/14-datari.html#" class="m-footer__link">Podmínky užití</a>
-					</li>
-					<li class="m-footer__item">
-						<a href="http://rozhlas2017.superkoderi.cz/tpl/14-datari.html#" class="m-footer__link">Kontakty</a>
-					</li>
-					<li class="m-footer__item">
-						<a href="http://rozhlas2017.superkoderi.cz/tpl/14-datari.html#" class="m-footer__link">Práce</a>
-					</li>
-				</ul>
-			</nav>
-
-			<p class="footer__copy">
-				© 1997-2016 Český rozhlas
-			</p>
-		</div>
-	</div>
-</footer>
-
-		<nav class="m-mobile">
-<div class="m-mobile__panel">
-	<p class="m-mobile__logo">
-		<span class="vhide">Český rozhlas - Zprávy</span>
-		<span class="icon-svg icon-svg--logo-irozhlas">
-	<svg class="icon-svg__svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-		<use xlink:href="./wrapper_files/icons-svg.svg#icon-logo-irozhlas" x="0" y="0" width="100%" height="100%"></use>
-	</svg>
-</span>
-
-	</p>
-
-	<a href="http://rozhlas2017.superkoderi.cz/tpl/14-datari.html#" class="m-mobile__close js-mobile-menu">
-		<span class="vhide">Zavřít</span>
-		<span class="icon-svg icon-svg--close">
-	<svg class="icon-svg__svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-		<use xlink:href="./wrapper_files/icons-svg.svg#icon-close" x="0" y="0" width="100%" height="100%"></use>
-	</svg>
-</span>
-
-	</a>
-</div>
-
-<div class="m-mobile__wrap">
-	<div class="m-mobile__group m-mobile__group--menu">
-		<form class="m-mobile__search">
-			<p class="inp inp--btn">
-				<label for="search" class="vhide">Vyhledávání</label>
-				<span class="inp__fix">
-					<input type="text" class="inp__text inp__text--md" id="search" name="search">
-				</span>
-				<button class="btn btn--md btn--icon-blank" type="submit">
-					<span class="btn__text">
-						<span class="vhide">Vyhledat</span>
-						<span class="icon-svg icon-svg--search">
-	<svg class="icon-svg__svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-		<use xlink:href="./wrapper_files/icons-svg.svg#icon-search" x="0" y="0" width="100%" height="100%"></use>
-	</svg>
-</span>
-
-					</span>
-				</button>
-			</p>
-		</form>
-
-		<ul class="m-mobile__list m-mobile__list--striped">
-
-			<li class="m-mobile__item">
-				<a href="http://rozhlas2017.superkoderi.cz/tpl/14-datari.html#" class="m-mobile__link">Domácí</a>
-			</li>
-			<li class="m-mobile__item">
-				<a href="http://rozhlas2017.superkoderi.cz/tpl/14-datari.html#" class="m-mobile__link">Svět</a>
-			</li>
-			<li class="m-mobile__item">
-				<a href="http://rozhlas2017.superkoderi.cz/tpl/14-datari.html#" class="m-mobile__link">Regiony</a>
-			</li>
-			<li class="m-mobile__item">
-				<a href="http://rozhlas2017.superkoderi.cz/tpl/14-datari.html#" class="m-mobile__link">Ekonomika</a>
-			</li>
-			<li class="m-mobile__item">
-				<a href="http://rozhlas2017.superkoderi.cz/tpl/14-datari.html#" class="m-mobile__link">Sport</a>
-			</li>
-			<li class="m-mobile__item">
-				<a href="http://rozhlas2017.superkoderi.cz/tpl/14-datari.html#" class="m-mobile__link">Věda</a>
-			</li>
-			<li class="m-mobile__item">
-				<a href="http://rozhlas2017.superkoderi.cz/tpl/14-datari.html#" class="m-mobile__link">Kultura</a>
-			</li>
-			<li class="m-mobile__item">
-				<a href="http://rozhlas2017.superkoderi.cz/tpl/14-datari.html#" class="m-mobile__link">Komentáře</a>
-			</li>
-			<li class="m-mobile__item">
-				<a href="http://rozhlas2017.superkoderi.cz/tpl/14-datari.html#" class="m-mobile__link">Zelená vlna</a>
-			</li>
-			<li class="m-mobile__item">
-				<a href="http://rozhlas2017.superkoderi.cz/tpl/14-datari.html#" class="m-mobile__link">Počasí</a>
-			</li>
-		</ul>
-	</div>
-
-	<div class="m-mobile__group m-mobile__group--submenu">
-		<ul class="m-mobile__list">
-			<li class="m-mobile__item">
-				<a href="http://rozhlas2017.superkoderi.cz/tpl/14-datari.html#" class="m-mobile__link m-mobile__link--text-version js-text-version" data-toggled="Plná verze">
-					Textová verze
-				</a>
-			</li>
-			
-			<li class="m-mobile__item">
-				<a href="http://rozhlas2017.superkoderi.cz/tpl/14-datari.html#" class="m-mobile__link">
-					Nejnovější zprávy
-				</a>
-			</li>
-		</ul>
-	</div>
-
-	<div class="m-mobile__group m-mobile__group--text">
-		<p class="m-socials m-socials--lg">
-			<a href="http://rozhlas2017.superkoderi.cz/tpl/14-datari.html#" class="m-socials__link">
-				<span class="vhide">Facebook</span>
-				<span class="icon-svg icon-svg--facebook">
-	<svg class="icon-svg__svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-		<use xlink:href="./wrapper_files/icons-svg.svg#icon-facebook" x="0" y="0" width="100%" height="100%"></use>
-	</svg>
-</span>
-
-			</a>
-			<a href="http://rozhlas2017.superkoderi.cz/tpl/14-datari.html#" class="m-socials__link">
-				<span class="vhide">Twitter</span>
-				<span class="icon-svg icon-svg--twitter">
-	<svg class="icon-svg__svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-		<use xlink:href="./wrapper_files/icons-svg.svg#icon-twitter" x="0" y="0" width="100%" height="100%"></use>
-	</svg>
-</span>
-
-			</a>
-			<a href="http://rozhlas2017.superkoderi.cz/tpl/14-datari.html#" class="m-socials__link">
-				<span class="vhide">Google+</span>
-				<span class="icon-svg icon-svg--gplus">
-	<svg class="icon-svg__svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-		<use xlink:href="./wrapper_files/icons-svg.svg#icon-gplus" x="0" y="0" width="100%" height="100%"></use>
-	</svg>
-</span>
-
-			</a>
-		</p>
-
-		<div class="m-text">
-			<p>
-				<a href="http://rozhlas2017.superkoderi.cz/tpl/14-datari.html#" class="m-text__invert js-inverse">
-					Inverzně
-				</a>
-			</p>
-		</div>
-	</div>
-
-	<div class="m-mobile__group m-mobile__group--submenu">
-		<ul class="m-mobile__list">
-
-			<li class="m-mobile__item">
-				<a href="http://rozhlas2017.superkoderi.cz/tpl/14-datari.html#" class="m-mobile__link">Kontakty</a>
-			</li>
-			<li class="m-mobile__item">
-				<a href="http://rozhlas2017.superkoderi.cz/tpl/14-datari.html#" class="m-mobile__link">Redakce</a>
-			</li>
-			<li class="m-mobile__item">
-				<a href="http://rozhlas2017.superkoderi.cz/tpl/14-datari.html#" class="m-mobile__link">Cookies</a>
-			</li>
-		</ul>
-	</div>
-
-	<div class="m-mobile__group m-mobile__group--logos">
-		<ul class="m-mobile__list">
-			<li class="m-mobile__item">
-				<a href="http://rozhlas2017.superkoderi.cz/tpl/14-datari.html#" class="m-mobile__link m-mobile__link--cesky-rozhlas">
-					<span class="vhide">Český rozhlas</span>
-				</a>
-			</li>
-			<li class="m-mobile__item">
-				<a href="http://rozhlas2017.superkoderi.cz/tpl/14-datari.html#" class="m-mobile__link m-mobile__link--radiozurnal">
-					<span class="vhide">Radiožurnál</span>
-				</a>
-			</li>
-			<li class="m-mobile__item">
-				<a href="http://rozhlas2017.superkoderi.cz/tpl/14-datari.html#" class="m-mobile__link m-mobile__link--plus">
-					<span class="vhide">Plus</span>
-				</a>
-			</li>
-		</ul>
-	</div>
-</div>
-
-<a href="http://rozhlas2017.superkoderi.cz/tpl/14-datari.html#" class="m-mobile__panel js-mobile-menu">
-	<span class="m-mobile__label">
-		Zavřít menu
-	</span>
-
-	<span class="m-mobile__close">
-		<span class="vhide">Zavřít</span>
-		<span class="icon-svg icon-svg--close">
-	<svg class="icon-svg__svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-		<use xlink:href="./wrapper_files/icons-svg.svg#icon-close" x="0" y="0" width="100%" height="100%"></use>
-	</svg>
-</span>
-
-	</span>
-</a>
-		</nav>
-
-		<!--[if (gte IE 9)|!(IE)]><!-->
-		<script src="./wrapper_files/app.js"></script>
-		<script>
-			App.run({});
-		</script>
-		<!--<![endif]-->
-	
-
-</body></html>
+</html>
